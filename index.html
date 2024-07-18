@@ -31,7 +31,7 @@
         function addNameInputs() {
             const nameInputsContainer = document.getElementById('nameInputs');
             nameInputsContainer.innerHTML = '';
-            for (let i = 0; i < 32; i++) {
+            for (let i = 0; i < 35; i++) {
                 const input = document.createElement('input');
                 input.type = 'text';
                 input.placeholder = `名字 ${i + 1}`;
@@ -49,8 +49,8 @@
                 }
             });
 
-            if (names.length !== 32) {
-                alert('请输入32个名字。');
+            if (names.length !== 35) {
+                alert('请输入35个名字。');
                 return;
             }
 
@@ -59,10 +59,10 @@
             const groupsContainer = document.getElementById('groups');
             groupsContainer.innerHTML = '';
 
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 7; i++) {
                 const groupDiv = document.createElement('div');
                 groupDiv.className = 'group';
-                groupDiv.innerHTML = `<strong>组 ${i + 1}:</strong> ${names.slice(i * 4, i * 4 + 4).join(', ')}`;
+                groupDiv.innerHTML = `<strong>组 ${i + 1}:</strong> ${names.slice(i * 5, i * 5 + 5).join(', ')}`;
                 groupsContainer.appendChild(groupDiv);
             }
         }
