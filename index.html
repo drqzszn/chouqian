@@ -19,62 +19,45 @@
 </head>
 <body>
     <h1>分组程序</h1>
-    <div id="namesContainer">
-        <h2>输入名字</h2>
-        <div id="nameInputs"></div>
-        <button onclick="addNameInputs()">添加名字输入框</button>
+    <div id="teamsContainer">
+        <h2>输入队伍名字</h2>
+        <div id="teamInputs"></div>
+        <button onclick="addTeamInputs()">添加队伍输入框</button>
         <button onclick="divideGroups()">随机分组</button>
     </div>
     <div id="groups"></div>
 
     <script>
-        function addNameInputs() {
-            const nameInputsContainer = document.getElementById('nameInputs');
-            nameInputsContainer.innerHTML = '';
-            for (let i = 0; i < 35; i++) {
+        function addTeamInputs() {
+            const teamInputsContainer = document.getElementById('teamInputs');
+            teamInputsContainer.innerHTML = '';
+            for (let i = 0; i < 8; i++) {
                 const input = document.createElement('input');
                 input.type = 'text';
-                input.placeholder = `名字 ${i + 1}`;
-                nameInputsContainer.appendChild(input);
+                input.placeholder = `队伍 ${i + 1}`;
+                teamInputsContainer.appendChild(input);
             }
         }
 
         function divideGroups() {
-            const nameInputs = document.querySelectorAll('#nameInputs input');
-            const names = [];
+            const teamInputs = document.querySelectorAll('#teamInputs input');
+            const teams = [];
 
-            nameInputs.forEach(input => {
+            teamInputs.forEach(input => {
                 if (input.value.trim()) {
-                    names.push(input.value.trim());
+                    teams.push(input.value.trim());
                 }
             });
 
-            if (names.length !== 35) {
-                alert('请输入35个名字。');
+            if (teams.length !== 8) {
+                alert('请输入8个队伍名字。');
                 return;
             }
 
-            shuffle(names);
+            shuffle(teams);
 
             const groupsContainer = document.getElementById('groups');
             groupsContainer.innerHTML = '';
 
-            for (let i = 0; i < 7; i++) {
-                const groupDiv = document.createElement('div');
-                groupDiv.className = 'group';
-                groupDiv.innerHTML = `<strong>组 ${i + 1}:</strong> ${names.slice(i * 5, i * 5 + 5).join(', ')}`;
-                groupsContainer.appendChild(groupDiv);
-            }
-        }
-
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        addNameInputs();
-    </script>
-</body>
-</html>
+            for (let i = 0; i < 4; i++) {
+                const groupDiv = document.create
