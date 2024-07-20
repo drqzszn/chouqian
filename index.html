@@ -60,4 +60,21 @@
             groupsContainer.innerHTML = '';
 
             for (let i = 0; i < 4; i++) {
-                const groupDiv = document.create
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'group';
+                groupDiv.innerHTML = `<strong>组 ${i + 1}:</strong> ${teams.slice(i * 2, i * 2 + 2).join(', ')}`;
+                groupsContainer.appendChild(groupDiv);
+            }
+        }
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        addTeamInputs();
+    </script>
+</body>
+</html>
